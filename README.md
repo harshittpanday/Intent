@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 INTENT
 
-## Getting Started
+> Understand any topic from multiple perspectives.
 
-First, run the development server:
+INTENT is a modern topic exploration platform that brings together discussions, videos, trusted sources, and AI-powered summaries into one place.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Instead of opening ten tabs across different websites, INTENT helps users explore a topic from multiple viewpoints in a single interface.
+
+---
+
+## ✨ Features
+
+- 🔍 Search any topic
+- 🧠 AI-generated summaries (planned)
+- 💬 Community discussions
+- 🎥 Curated educational videos
+- 📚 Trusted resources
+- ⚡ Fast and responsive UI
+- 🌙 Modern dark theme
+
+---
+
+## 🛠️ Built With
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Vercel
+
+---
+
+## 🚀 Roadmap
+
+### Version 1
+- [x] Landing page
+- [x] Search navigation
+- [x] Dynamic topic pages
+- [x] Responsive UI
+- [ ] Topic engine
+- [ ] Search improvements
+
+### Version 2
+- [ ] User accounts
+- [ ] Comments
+- [ ] Bookmarks
+- [ ] Topic recommendations
+
+### Version 3
+- [ ] Reddit integration
+- [ ] YouTube integration
+- [ ] AI summaries
+- [ ] Official documentation support
+
+---
+
+## 📸 Preview
+
+Coming soon.
+
+---
+
+## 🖥️ Live Demo
+
+https://inten1.vercel.app/
+
+---
+
+## 📂 Project Structure
+
+```
+app/
+├── components/
+├── lib/
+├── topic/
+│   └── [slug]/
+├── globals.css
+├── layout.tsx
+└── page.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 💡 Vision
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Search engines are great at finding links.
 
-## Learn More
+INTENT is designed to help people understand topics by combining multiple perspectives into a single, organized experience.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contributions, suggestions, and feedback are welcome.
 
-## Deploy on Vercel
+Feel free to open an issue or submit a pull request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+MIT License
+
+---
+
+Made with ❤️ by Harshit Pandey
