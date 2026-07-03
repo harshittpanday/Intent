@@ -59,6 +59,40 @@ export default function SignupPage() {
   }, [username]);
 
   const handleSignup = async () => {
+
+  const handleSignup = async () => {
+  if (!displayName || !username || !email || !password) {
+    alert("Please fill all fields.");
+    return;
+  }
+
+  // 👇 Add this here
+  const reservedUsernames = [
+    "admin",
+    "login",
+    "signup",
+    "settings",
+    "api",
+    "search",
+    "about",
+    "privacy",
+    "terms",
+  ];
+
+  if (reservedUsernames.includes(username.toLowerCase())) {
+    alert("This username is reserved.");
+    return;
+  }
+
+  // Existing username check
+  if (usernameStatus === "taken") {
+    alert("Username is already taken.");
+    return;
+  }
+
+  // Continue with Firestore query and account creation...
+};
+
     if (
       !displayName ||
       !username ||
