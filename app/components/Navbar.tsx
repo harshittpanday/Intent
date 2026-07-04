@@ -21,9 +21,12 @@ export default function Navbar() {
         <p className="text-slate-400">Loading...</p>
       ) : profile ? (
         <div className="flex items-center gap-4">
-          <span className="text-white">
-            @{profile.username}
-          </span>
+<Link
+  href={`/${profile.username}`}
+ className="rounded-lg bg-slate-800 px-4 py-2 hover:bg-slate-700 transition"
+>
+  @{profile.username}
+</Link>
 
           <button
             onClick={() => signOut(auth)}

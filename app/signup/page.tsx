@@ -13,6 +13,8 @@ import {
   setDoc,
   where,
 } from "firebase/firestore";
+import { toast } from "sonner";
+
 
 export default function SignupPage() {
   const router = useRouter();
@@ -62,31 +64,35 @@ export default function SignupPage() {
 
   const handleSignup = async () => {
   if (!displayName || !username || !email || !password) {
-    alert("Please fill all fields.");
+    toast.error("Please fill all fields.");
     return;
   }
 
-  // 👇 Add this here
-  const reservedUsernames = [
-    "admin",
-    "login",
-    "signup",
-    "settings",
-    "api",
-    "search",
-    "about",
-    "privacy",
-    "terms",
-  ];
+const reservedUsernames = [
+  "settings",
+  "login",
+  "signup",
+  "admin",
+  "api",
+  "intent",
+  "explore",
+  "search",
+  "about",
+  "privacy",
+  "terms",
+  "support",
+  "help",
+  "home",
+];
 
   if (reservedUsernames.includes(username.toLowerCase())) {
-    alert("This username is reserved.");
+    toast.error("This username is reserved.");
     return;
   }
 
   // Existing username check
   if (usernameStatus === "taken") {
-    alert("Username is already taken.");
+    toast.error("Username is already taken.");
     return;
   }
 
@@ -99,12 +105,12 @@ export default function SignupPage() {
       !email ||
       !password
     ) {
-      alert("Please fill all fields.");
+      toast.error("Please fill all fields.");
       return;
     }
 
     if (usernameStatus === "taken") {
-      alert("Username is already taken.");
+      toast.error("Username is already taken.");
       return;
     }
 
@@ -118,7 +124,7 @@ export default function SignupPage() {
       const usernameSnapshot = await getDocs(usernameQuery);
 
       if (!usernameSnapshot.empty) {
-        alert("Username is already taken.");
+        toast.error("Username is already taken.");
         return;
       }
 
@@ -152,7 +158,7 @@ return;
 
       router.push("/");
     } catch (error: any) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
