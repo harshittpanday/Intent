@@ -59,19 +59,26 @@ export function AuthProvider({
           return;
         }
 
-        const snap = await getDoc(
-          doc(db, "users", user.uid)
-        );
+        try {
+          const snap = await getDoc(
+            doc(db, "users", user.uid)
+          );
 
-        if (snap.exists()) {
-          setProfile(snap.data() as Profile);
+          if (snap.exists()) {
+            setProfile(snap.data() as Profile);
+          } else {
+            setProfile(null);
+          }
+        } catch (error) {
+          console.error("AuthProvider Error:", error);
+          setProfile(null);
+        } finally {
+          setLoading(false);
         }
-
-        setLoading(false);
       }
     );
 
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -87,5 +94,4 @@ export function AuthProvider({
   );
 }
 
-export const useAuth = () =>
-  useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
