@@ -1,5 +1,6 @@
 import SectionCard from "@/app/components/SectionCard";
 import TopicNavbar from "@/app/components/TopicNavbar";
+import Comments from "@/app/components/comments";
 
 type Props = {
   params: Promise<{
@@ -93,7 +94,7 @@ export default async function TopicPage({ params }: Props) {
             icon="💬"
           >
             <div className="rounded-xl bg-slate-800 p-4">
-              Comments will appear here.
+              <Comments topic={topic} />
             </div>
           </SectionCard>
 

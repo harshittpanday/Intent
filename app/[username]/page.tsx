@@ -19,6 +19,7 @@ type Profile = {
   email: string;
   bio: string;
   avatar: string;
+  createdAt: any;
 };
 
 export default function ProfilePage() {
@@ -71,6 +72,12 @@ export default function ProfilePage() {
 
   const isOwner = currentUser?.uid === profile.uid;
 
+  const joinedDate =
+  profile.createdAt?.toDate?.().toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  }) || "Recently";
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-4xl px-6 py-12">
@@ -93,6 +100,10 @@ export default function ProfilePage() {
 
           <p className="mt-8 text-slate-300">
             {profile.bio || "No bio yet."}
+          </p>
+
+          <p className="mt-4 text-slate-400">
+          📅 Joined {joinedDate}
           </p>
 
           {isOwner && (
