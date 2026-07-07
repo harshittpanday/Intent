@@ -73,18 +73,30 @@ export default function ProfilePage() {
   const isOwner = currentUser?.uid === profile.uid;
 
   const joinedDate =
-  profile.createdAt?.toDate?.().toLocaleDateString("en-US", {
-    month: "long",
-    year: "numeric",
-  }) || "Recently";
+    profile.createdAt?.toDate?.().toLocaleDateString("en-US", {
+      month: "long",
+      year: "numeric",
+    }) || "Recently";
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-4xl px-6 py-12">
         <div className="rounded-2xl bg-slate-900 p-8">
+
           <div className="flex items-center gap-6">
-            <div className="h-24 w-24 rounded-full bg-slate-700 flex items-center justify-center text-4xl">
-              👤
+
+            <div className="h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-slate-700 bg-slate-700">
+              {profile.avatar ? (
+                <img
+                  src={profile.avatar}
+                  alt={profile.displayName}
+                  className="h-full w-full rounded-full object-cover"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center text-4xl">
+                  👤
+                </div>
+              )}
             </div>
 
             <div>
@@ -92,10 +104,11 @@ export default function ProfilePage() {
                 {profile.displayName}
               </h1>
 
-              <p className="text-slate-400 text-xl">
+              <p className="text-xl text-slate-400">
                 @{profile.username}
               </p>
             </div>
+
           </div>
 
           <p className="mt-8 text-slate-300">
@@ -103,19 +116,20 @@ export default function ProfilePage() {
           </p>
 
           <p className="mt-4 text-slate-400">
-          📅 Joined {joinedDate}
+            📅 Joined {joinedDate}
           </p>
 
           {isOwner && (
             <div className="mt-8">
-            <Link
-              href="/settings"
-              className="mt-8 inline-block rounded-lg bg-blue-600 px-5 py-3 font-semibold hover:bg-blue-700 transition"
-            >
-              ✏️ Edit Profile
-            </Link>
+              <Link
+                href="/settings"
+                className="inline-block rounded-lg bg-blue-600 px-5 py-3 font-semibold transition hover:bg-blue-700"
+              >
+                ✏️ Edit Profile
+              </Link>
             </div>
           )}
+
         </div>
       </div>
     </main>

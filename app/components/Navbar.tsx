@@ -21,16 +21,33 @@ export default function Navbar() {
         <p className="text-slate-400">Loading...</p>
       ) : profile ? (
         <div className="flex items-center gap-4">
-<Link
-  href={`/${profile.username}`}
- className="rounded-lg bg-slate-800 px-4 py-2 hover:bg-slate-700 transition"
->
-  @{profile.username}
-</Link>
+          <Link
+            href={`/${profile.username}`}
+            className="flex items-center gap-3 hover:opacity-90 transition"
+          >
+<div className="size-10 flex-none overflow-hidden rounded-full border border-slate-700 bg-slate-700">
+  {profile.avatar ? (
+<img
+  src={profile.avatar}
+  alt={profile.displayName}
+  width={40}
+  height={40}
+  className="h-10 w-10 rounded-full object-cover"
+ />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center text-lg">
+      👤
+    </div>
+  )}
+</div>
+            <span className="font-medium text-white">
+              @{profile.username}
+            </span>
+          </Link>
 
           <button
             onClick={() => signOut(auth)}
-            className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg"
+            className="rounded-lg bg-red-600 px-4 py-2 transition hover:bg-red-700"
           >
             Logout
           </button>
@@ -39,14 +56,14 @@ export default function Navbar() {
         <div className="flex gap-3">
           <Link
             href="/login"
-            className="bg-slate-800 hover:bg-slate-700 px-5 py-2 rounded-xl"
+            className="rounded-xl bg-slate-800 px-5 py-2 hover:bg-slate-700"
           >
             Log In
           </Link>
 
           <Link
             href="/signup"
-            className="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-xl"
+            className="rounded-xl bg-blue-600 px-5 py-2 hover:bg-blue-700"
           >
             Sign Up
           </Link>

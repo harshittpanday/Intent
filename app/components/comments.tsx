@@ -23,6 +23,7 @@ type Comment = {
   id: string;
   displayName: string;
   username: string;
+  avatar: string;
   text: string;
 };
 
@@ -64,14 +65,15 @@ export default function Comments({ topic }: Props) {
       return;
     }
 
-    await addDoc(collection(db, "comments"), {
-      topic,
-      uid: profile.uid,
-      displayName: profile.displayName,
-      username: profile.username,
-      text,
-      createdAt: serverTimestamp(),
-    });
+await addDoc(collection(db, "comments"), {
+  topic,
+  uid: profile.uid,
+  displayName: profile.displayName,
+  username: profile.username,
+  avatar: profile.avatar || "",
+  text,
+  createdAt: serverTimestamp(),
+});
 
     setText("");
     toast.success("Comment posted!");
@@ -113,9 +115,21 @@ export default function Comments({ topic }: Props) {
             className="rounded-xl bg-slate-800 p-4"
           >
             <div className="flex items-start gap-3">
-              <div className="h-10 w-10 rounded-full bg-slate-700 flex items-center justify-center">
-                👤
-              </div>
+<div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full border border-slate-700 bg-slate-700">
+  {comment.avatar ? (
+    <img
+      src={comment.avatar}
+      alt={comment.displayName}
+      width={40}
+      height={40}
+      className="h-10 w-10 rounded-full object-cover"
+    />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center">
+      👤
+    </div>
+  )}
+</div>
 
               <div className="flex-1">
                 <Link
