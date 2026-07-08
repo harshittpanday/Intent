@@ -1,6 +1,7 @@
 import SectionCard from "@/app/components/SectionCard";
 import TopicNavbar from "@/app/components/TopicNavbar";
 import Comments from "@/app/components/comments";
+import YouTubeVideos from "@/app/components/YouTubeVideos";
 
 type Props = {
   params: Promise<{
@@ -71,14 +72,12 @@ export default async function TopicPage({ params }: Props) {
             </div>
           </SectionCard>
 
-          <SectionCard
-            title="Videos"
-            icon="🎥"
-          >
-            <div className="rounded-xl bg-slate-800 p-4">
-              YouTube videos will appear here.
-            </div>
-          </SectionCard>
+             <SectionCard
+               title="Videos"
+               icon="🎥"
+               >
+               <YouTubeVideos topic={topic} />
+             </SectionCard>
 
           <SectionCard
             title="Official Resources"
