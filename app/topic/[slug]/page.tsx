@@ -2,7 +2,6 @@ import SectionCard from "@/app/components/SectionCard";
 import TopicNavbar from "@/app/components/TopicNavbar";
 import Comments from "@/app/components/comments";
 import YouTubeVideos from "@/app/components/YouTubeVideos";
-import AISummary from "@/app/components/AIsummary";
 import NewsFeed from "@/app/components/NewsFeed";
 
 type Props = {
