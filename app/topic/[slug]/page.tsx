@@ -2,6 +2,7 @@ import SectionCard from "@/app/components/SectionCard";
 import TopicNavbar from "@/app/components/TopicNavbar";
 import Comments from "@/app/components/comments";
 import YouTubeVideos from "@/app/components/YouTubeVideos";
+import AISummary from "@/app/components/AIsummary";
 
 type Props = {
   params: Promise<{
@@ -48,14 +49,12 @@ export default async function TopicPage({ params }: Props) {
 
         <div className="space-y-8">
 
-          <SectionCard
-            title="AI Summary"
-            icon="🧠"
-          >
-            <p className="text-slate-400">
-              AI summary will appear here.
-            </p>
-          </SectionCard>
+<SectionCard
+  title="AI Summary"
+  icon="🧠"
+>
+  <AISummary topic={topic} />
+</SectionCard>
 
           <SectionCard
             title="Discussions"
