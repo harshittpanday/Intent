@@ -49,12 +49,7 @@ export default async function TopicPage({ params }: Props) {
 
         <div className="space-y-8">
 
-<SectionCard
-  title="AI Summary"
-  icon="🧠"
->
-  <AISummary topic={topic} />
-</SectionCard>
+
 
           <SectionCard
             title="Discussions"
