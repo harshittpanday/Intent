@@ -3,6 +3,7 @@ import TopicNavbar from "@/app/components/TopicNavbar";
 import Comments from "@/app/components/comments";
 import YouTubeVideos from "@/app/components/YouTubeVideos";
 import NewsFeed from "@/app/components/NewsFeed";
+import GitHubResources from "@/app/components/GitHubResources"
 
 type Props = {
   params: Promise<{
@@ -81,14 +82,12 @@ export default async function TopicPage({ params }: Props) {
 
 </SectionCard>
 
-          <SectionCard
-            title="Official Resources"
-            icon="📚"
-          >
-            <div className="rounded-xl bg-slate-800 p-4">
-              Documentation and trusted sources.
-            </div>
-          </SectionCard>
+<SectionCard
+  title="GitHub Resources"
+  icon="💻"
+>
+  <GitHubResources topic={topic} />
+</SectionCard>
 
           <SectionCard
             title="Community"
