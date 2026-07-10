@@ -34,8 +34,8 @@ export default function Home() {
 
           <FeatureCard
             icon="📚"
-            title="Trusted Sources"
-            description="Access official documentation and reliable references."
+            title="GitHub Sources"
+            description="Access GitHub repositories and reliable references."
           />
         </section>
       </div>
