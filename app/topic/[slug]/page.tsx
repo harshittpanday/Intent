@@ -4,6 +4,8 @@ import Comments from "@/app/components/comments";
 import YouTubeVideos from "@/app/components/YouTubeVideos";
 import NewsFeed from "@/app/components/NewsFeed";
 import GitHubResources from "@/app/components/GitHubResources"
+import StackOverflow from "@/app/components/StackOverflow";
+import Wikipedia from "@/app/components/Wikipedia";
 
 type Props = {
   params: Promise<{
@@ -51,6 +53,12 @@ export default async function TopicPage({ params }: Props) {
         <div className="space-y-8">
 
 
+<SectionCard
+  title="Wikipedia"
+  icon="📖"
+>
+  <Wikipedia topic={topic} />
+</SectionCard>
 
           <SectionCard
             title="Discussions"
@@ -87,6 +95,13 @@ export default async function TopicPage({ params }: Props) {
   icon="💻"
 >
   <GitHubResources topic={topic} />
+</SectionCard>
+
+<SectionCard
+  title="Stack Overflow"
+  icon="❓"
+>
+  <StackOverflow topic={topic} />
 </SectionCard>
 
           <SectionCard
