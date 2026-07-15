@@ -46,13 +46,28 @@ export default function YouTubeVideos({ topic }: Props) {
     loadVideos();
   }, [topic]);
 
-  if (loading) {
-    return (
-      <div className="rounded-xl bg-slate-800 p-4">
-        Loading videos...
-      </div>
-    );
-  }
+if (loading) {
+  return (
+    <div className="space-y-4">
+      {[1, 2, 3].map((i) => (
+        <div
+          key={i}
+          className="animate-pulse rounded-xl bg-slate-800 p-4"
+        >
+          <div className="flex gap-4">
+            <div className="h-24 w-40 rounded-lg bg-slate-700" />
+
+            <div className="flex-1">
+              <div className="h-5 w-3/4 rounded bg-slate-700" />
+              <div className="mt-3 h-4 w-1/2 rounded bg-slate-700" />
+              <div className="mt-2 h-4 w-1/3 rounded bg-slate-700" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
   return (
     <div className="space-y-4">

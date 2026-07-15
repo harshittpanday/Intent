@@ -33,9 +33,25 @@ export default function Wikipedia({ topic }: { topic: string }) {
     loadWiki();
   }, [topic]);
 
-  if (loading) {
-    return <p className="text-slate-400">Loading Wikipedia...</p>;
-  }
+if (loading) {
+  return (
+    <div className="animate-pulse rounded-xl bg-slate-800 p-5">
+      <div className="flex gap-5">
+        <div className="h-32 w-32 rounded-xl bg-slate-700" />
+
+        <div className="flex-1">
+          <div className="h-7 w-56 rounded bg-slate-700" />
+
+          <div className="mt-5 h-4 w-full rounded bg-slate-700" />
+          <div className="mt-2 h-4 w-11/12 rounded bg-slate-700" />
+          <div className="mt-2 h-4 w-9/12 rounded bg-slate-700" />
+
+          <div className="mt-6 h-10 w-36 rounded-lg bg-slate-700" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
   if (!wiki || !wiki.summary) {
     return <p className="text-slate-400">No Wikipedia article found.</p>;
@@ -57,20 +73,20 @@ export default function Wikipedia({ topic }: { topic: string }) {
             {wiki.title}
           </h2>
 
-          <p className="mt-3 text-slate-300 leading-7">
-            {wiki.summary}
-          </p>
+<p className="mt-3 line-clamp-4 text-slate-300 leading-7">
+  {wiki.summary}
+</p>
 
-          {wiki.url && (
-            <a
-              href={wiki.url}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-block text-blue-400 hover:underline"
-            >
-              Read on Wikipedia →
-            </a>
-          )}
+{wiki.url && (
+  <a
+    href={wiki.url}
+    target="_blank"
+    rel="noreferrer"
+    className="mt-4 inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-500"
+  >
+    📖 Read Article →
+  </a>
+)}
         </div>
       </div>
     </div>

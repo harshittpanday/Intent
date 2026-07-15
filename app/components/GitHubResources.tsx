@@ -37,12 +37,23 @@ export default function GitHubResources({
     loadRepos();
   }, [topic]);
 
-  if (loading)
-    return (
-      <p className="text-slate-400">
-        Loading repositories...
-      </p>
-    );
+if (loading) {
+  return (
+    <div className="space-y-4">
+      {[1, 2, 3].map((i) => (
+        <div
+          key={i}
+          className="animate-pulse rounded-xl bg-slate-800 p-4"
+        >
+          <div className="h-6 w-2/3 rounded bg-slate-700" />
+          <div className="mt-3 h-4 w-full rounded bg-slate-700" />
+          <div className="mt-2 h-4 w-4/5 rounded bg-slate-700" />
+          <div className="mt-4 h-4 w-20 rounded bg-slate-700" />
+        </div>
+      ))}
+    </div>
+  );
+}
 
   if (!repos.length)
     return (
